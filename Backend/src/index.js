@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 
 dotenv.config();
 
+const port = process.env.PORT||5005
 const router = require('./router');
 
 const app = express();
@@ -22,7 +23,7 @@ app.use(router);
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
   console.log('starting on port 5005');
-  app.listen(5005);
+  app.listen(port);
 })
 
 
